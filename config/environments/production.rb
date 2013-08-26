@@ -30,6 +30,16 @@ Discourse::Application.configure do
 
   # you may use other configuration here for mail eg: sendgrid
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :port =>           '587',
+      :address =>        'smtp.mandrillapp.com',
+      :user_name =>      ENV['MANDRILL_USERNAME'],
+      :password =>       ENV['MANDRILL_APIKEY'],
+      :domain =>         'jumpstartlab.com',
+      :authentication => :plain
+  }
+
   # config.action_mailer.delivery_method = :smtp
   # config.action_mailer.smtp_settings = {
   #   :address              => "smtp.sendgrid.net",
